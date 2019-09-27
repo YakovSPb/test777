@@ -7,33 +7,297 @@
 	padding: 0
 
 html, body
-	color: #000
+	color: $color
+	font-family: $font
+	font-size: 16px
 	background-color: #fff
 	width: 100%
 	line-height: 1.4
 	overflow-x: hidden
+
+.container
+	margin: 0 auto
+	max-width: 1180px
+	width: 100%
+	padding: 0
+
 a
 	color: $accent
 	&:hover
 		text-decoration: none
+		color: $accent
 		
 .btn
-	background-color: rgba(129, 129, 129, .31)
-	border: 1ps soilid #fff
-	border-radius: 7px
-	font-family: "Arial Bold", sans-serif
-	font-size: 17px
-	text-transform: uppercase
+	background-color: $accent
+	border-radius: 5px
+	font-family: $font
+	font-weight: bold
+	font-size: 16px
 	text-decoration: none
-	padding: 9px 90px
+	width: 166px
+	height: 40px
+	line-height: 40px
 	color: #fff
+	display: block
+	text-align: center
+	transition: background .5s ease
+	&:hover
+		color: #fff
+		background-color: darken($accent, 20%)
 
-h1
-	font-size: 26px
-	font-family: "Arial", sans-serif
+h1, .h1
+	font-size: 30px
+	font-family: $font
+	font-weight: bold
+	text-transform: uppercase
+	margin: 50px 0 40px
+	position: relative
+	display: inline-block
+	&:after
+		content: ''
+		position: absolute
+		bottom: -7px
+		left: 50%
+		margin-left: -35px
+		height: 3px
+		width: 70px
+		background-color: $accent
+
+h2, .h2
+	font-size: 20px
+	font-family: $font
+	font-weight: bold
+	text-transform: uppercase
+
+
+// MOBILE MENU
+.gumburger
+	position: fixed
+	right: 30px
+	top: 20px
+	font-size: 30px
+	cursor: pointer
+	color: $color
+	display: none
+
+.m-menu
+	margin: 0
+	position: fixed
+	right: 0
+	top: 0
+	height: 100vh
+	width: 100%
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	list-style-type: none
+	font-size: 30px
+	line-height: 60px
+	background-color: #ddd
+	z-index: 1000	
+	transform: translateX(100%)
+	transition: .5s ease
+	&__button--close
+		position: fixed
+		right: 30px
+		top: 25px
+		margin: 0		
+		font-size: 50px
+		font-weight: 900
+		cursor: pointer
+	a
+		color: $color
+		text-decoration: none
+.m-menu__active
+	transform: translateX(0)
+	
+
+
+// END MOBILE MENU
+
+// HEADER
+
+.header
+	margin-top: 20px
+	position: relative
+	&__line
+		background-color: $gray
+		height: 50px
+		width: 100%
+		margin-top: 20px
+	.logo
+		font-size: 16px
+		font-family: $font
+		font-weight: bold
+		color: $color
+		background-color: $gray
+		width: 280px
+		height: 100px
+		text-transform: uppercase
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		align-items: center
+		justify-content: center
+
+.main-menu
+	&__list
+		list-style-type: none
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: space-between
+		li
+			width: 25%
+			text-align: center
+			a
+				line-height: 50px
+				color: $color
+				text-transform: uppercase
+				font-weight: bold
+				display: block
+				transition: all .5s ease
+				&:hover
+					color: #fff
+					background-color: $accent
+
+// END HEADER
+
+// MAIN
 
 .main
+	text-align: center
+	max-width: 578px
 	margin: 0 auto
-	width: 90%
+	strong
+		font-weight: bold
+	p
+		line-height: 24px
+		margin-bottom: 10px
+	.accent-text
+		text-transform: uppercase
+		color: $accent
+		font-weight: bold
+		margin-bottom: 38px
+	.btn
+		margin: 0 auto
+
+// END MAIN
+
+// COMMENTS
+.comments
+	margin: 80px 0 40px
+	.h2
+		text-align: center
+	&__link
+		display: block
+		color: $color
+		cursor: pointer
+		transition: all .5s ease
+		&:hover
+			.comments__img img
+				border: 3px solid $accent
+			.comments__item
+				border: 3px solid $accent
+			.comments__title:after
+				width: 70px
+	&__wrap
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+	&__item
+		max-width: 576px
+		width: 100%
+		max-height: 250px
+		border: 3px solid $gray
+		padding: 40px 35px
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: space-between
+		margin-bottom: 30px
+		cursor: pointer
+		transition: border .5s ease
+	&__img
+		img
+			width: 80px
+			height: 80px
+			border-radius: 100%
+			border: 3px solid #fff
+			margin-right: 40px
+			transition: border .5s ease
+	&__body
+		max-width: 380px
+	&__title
+		font-weight: bold
+		font-size: 18px
+		position: relative
+		margin-bottom: 35px
+		&:after
+			content: ''
+			position: absolute
+			bottom: -10px
+			left: 0
+			height: 3px
+			width: 35px
+			background-color: $accent
+			transition: width .5s ease
+	&__text
+		font-family: "OpenSansItalic", sans-serif
+		height: 112px
+		overflow: hidden
+// END COMMENTS
+
+
+// OFFICE-HOURS
+.office-hours
+	margin-bottom: 60px
+	.h2
+		text-align: center
+		margin-top: 20px
+	&__body
+		max-width: 240px
+		margin: 0 auto
+		text-align: center
+		text-transform: uppercase
+		margin-top: 30px
+	&__table
+		tr
+			td
+				line-height: 40px
+				&:first-child
+					padding-right: 70px
+					padding-left: 35px
+				&:last-child
+					padding-right: 25px
+			&:nth-child(odd)
+				background-color: #eee
+// END OFFICE-HOURS
+
+
+// FOOTER
+.footer
+	background-color: $gray
+	height: 50px
+	line-height: 50px
+	.phone
+		text-align: center
+		a
+			font-weight: bold
+			text-transform: uppercase
+			color: $color
+			text-decoration: underline
+// END FOOTER
 
 @import "media" // Всегда в конце
